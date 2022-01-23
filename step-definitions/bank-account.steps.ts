@@ -4,7 +4,7 @@ import {Account} from '../src/domain/Account';
 
 @binding()
 export class BankAccountSteps {
-  private accountBalance: number = 0;
+  
   private account: Account;
 
   constructor() {
@@ -14,16 +14,18 @@ export class BankAccountSteps {
   @given(/A bank account with starting balance of \$(\d*)/)
   public givenAnAccountWithStartingBalance(amount: number) {
     
-    this.accountBalance = amount;
+    this.account.deposit(amount);
   }
 
   @when(/\$(\d*) is deposited/)
   public deposit(amount: number) {
-    this.accountBalance = Number(this.accountBalance) + Number(amount);
+    
+    this.account.deposit(amount);
   }
 
   @then(/The bank account balance should be \$(\d*)/)
   public accountBalanceShouldEqual(expectedAmount: number) {
-    assert.equal(this.accountBalance, expectedAmount);
+    
+    assert.equal(this.account.balance, expectedAmount);
   }
 }
