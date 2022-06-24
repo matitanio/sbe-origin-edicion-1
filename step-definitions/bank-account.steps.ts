@@ -1,14 +1,14 @@
 import { binding, given, then, when} from 'cucumber-tsflow';
 import { assert } from 'chai';
-import {Account} from '../src/domain/Account'; 
+import {Cuenta} from '../src/domain/Cuenta'; 
 
 @binding()
 export class BankAccountSteps {
   
-  private account: Account;
+  private account: Cuenta;
 
   constructor() {
-    this.account =  new Account();
+    this.account =  new Cuenta();
   }
 
   @given(/Una cuenta con un saldo inicial de \$(\d*)/)
