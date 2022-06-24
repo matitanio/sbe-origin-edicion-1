@@ -1,19 +1,19 @@
 export class Cuenta{
 
-    balance: number = 0;
+    saldo: number = 0;
 
-    constructor(intialBalance: number = 0){
+    constructor(saldoInicial: number = 0){
 
-        this.balance = Number(intialBalance);
+        this.saldo = Number(saldoInicial);
     }
 
-    getBalance() : number{
-        return this.balance;
+    consultarSaldo() : number{
+        return this.saldo;
     }
 
-    deposit(amount : number){
+    depositar(monto : number){
         
-        this.balance += Number(amount); 
+        this.saldo += Number(monto); 
     }
 
 }

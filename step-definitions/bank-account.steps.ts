@@ -12,20 +12,20 @@ export class BankAccountSteps {
   }
 
   @given(/Una cuenta con un saldo inicial de \$(\d*)/)
-  public unaCuentaConSaldoInicial(amount: number) {
+  public unaCuentaCon(saldoInicial: number) {
     
-    this.account.deposit(amount);
+    this.account.depositar(saldoInicial);
   }
 
   @when(/Cuando deposito \$(\d*)/)
-  public depositamos(amount: number) {
+  public depositamos(monto: number) {
     
-    this.account.deposit(amount);
+    this.account.depositar(monto);
   }
 
   @then(/El saldo de la cuenta tiene que ser de \$(\d*)/)
-  public elSaldoDeLaCuentaDebeSer(expectedAmount: number) {
+  public laCuentaDeberTenerUn(saldoEsperado: number) {
     
-    assert.equal(this.account.balance, expectedAmount);
+    assert.equal(this.account.saldo, saldoEsperado);
   }
 }
