@@ -1,9 +1,6 @@
-Feature: Bank Account
-  In order to do save money
-  As a responsible adult
-  I want to store by money in a bank account
+Feature: Operaciones con cuentas
 
-  Scenario: Stores money
-    Given A bank account with starting balance of $100
-    When $100 is deposited
-    Then The bank account balance should be $200
+  Scenario: Depositar dinero
+    Given Una cuenta con un saldo inicial de $100
+    When Cuando deposito $100
+    Then El saldo de la cuenta tiene que ser de $200

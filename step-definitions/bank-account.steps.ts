@@ -11,19 +11,19 @@ export class BankAccountSteps {
     this.account =  new Account();
   }
 
-  @given(/A bank account with starting balance of \$(\d*)/)
+  @given(/Una cuenta con un saldo inicial de \$(\d*)/)
   public givenAnAccountWithStartingBalance(amount: number) {
     
     this.account.deposit(amount);
   }
 
-  @when(/\$(\d*) is deposited/)
+  @when(/Cuando deposito \$(\d*)/)
   public deposit(amount: number) {
     
     this.account.deposit(amount);
   }
 
-  @then(/The bank account balance should be \$(\d*)/)
+  @then(/El saldo de la cuenta tiene que ser de \$(\d*)/)
   public accountBalanceShouldEqual(expectedAmount: number) {
     
     assert.equal(this.account.balance, expectedAmount);
