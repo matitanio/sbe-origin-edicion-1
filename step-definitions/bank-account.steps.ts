@@ -1,6 +1,10 @@
 import { binding, given, then, when} from 'cucumber-tsflow';
 import { assert } from 'chai';
 import {Cuenta} from '../src/domain/Cuenta'; 
+//import { setDefaultTimeout } from 'cucumber';
+
+//setDefaultTimeout(10000);
+
 
 @binding()
 export class BankAccountSteps {
@@ -13,7 +17,6 @@ export class BankAccountSteps {
 
   @given(/Una cuenta con un saldo inicial de (-?\d+)/)
   public unaCuentaCon(saldoInicial: number) {
-    console.log(`Cuenta con: ${saldoInicial}`);
     this.account.depositar(saldoInicial);
   }
 
@@ -33,9 +36,7 @@ export class BankAccountSteps {
   }
 
   @then(/El error debe ser saldo insuficiente/)
-  public pepe(messageError: string) {
-    assert.equal(this.account.error, " saldo insuficiente");
+  public pepe() {
+    assert.equal(this.account.error, "saldo insuficiente");
   }
-
-
 }

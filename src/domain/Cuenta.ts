@@ -21,7 +21,7 @@ export class Cuenta{
     extraer(monto: number){
         if(this.saldo >= monto )
             this.saldo -= monto;
-        else this.error = " saldo insuficiente";      
+        else this.error = "saldo insuficiente";      
     }
 
 }
