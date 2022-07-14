@@ -2,7 +2,7 @@ export class Cuenta{
 
     saldo: number = 0;
     error: string = "";
-
+    acuerdo: number = 0;
 
     constructor(saldoInicial: number = 0){
 
@@ -19,9 +19,17 @@ export class Cuenta{
     }
 
     extraer(monto: number){
-        if(this.saldo >= monto )
+       
+        if(this.saldo + this.acuerdo >= monto )
+        {
             this.saldo -= monto;
-        else this.error = "saldo insuficiente";      
+        }          
+        else this.error = "saldo insuficiente"; 
+        
+       
     }
 
+    configAcuerdo(montoAcuerdo: number) {
+        this.acuerdo = montoAcuerdo;
+    }
 }
