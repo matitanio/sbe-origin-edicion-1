@@ -23,20 +23,19 @@ Feature: Operaciones con cuentas
 
   Scenario: Extraer dinero de una cuenta con saldo suficiente, que tiene acuerdo
     Given Una cuenta con un saldo inicial de 100 
-    Given Una cuenta con acuerdo de 300
+    Given Una cuenta con acuerdo de 300 y un interes de 10 porciento sobre descubierto
     When Cuando extraigo 100
     Then El saldo de la cuenta tiene que ser de 0
 
   Scenario: Extraer dinero de una cuenta con saldo suficiente, que tiene acuerdo
     Given Una cuenta con un saldo inicial de 100 
-    Given Una cuenta con acuerdo de 300
+    Given Una cuenta con acuerdo de 300 y un interes de 10 porciento sobre descubierto
     When Cuando extraigo 100
     Then El saldo de la cuenta tiene que ser de 0
   
   Scenario: Extraer dinero de una cuenta con saldo insuficiente aplicando el acuerdo y su interes
     Given Una cuenta con un saldo inicial de 100 
-    Given Una cuenta con acuerdo de 300
-    Given Un acuerdo con interes de 10 porciento sobre descubierto
+    Given Una cuenta con acuerdo de 300 y un interes de 10 porciento sobre descubierto
     When Cuando extraigo 200
     Then El saldo de la cuenta tiene que ser de -110
   

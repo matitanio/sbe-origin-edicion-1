@@ -3,6 +3,7 @@ export class Cuenta{
     saldo: number = 0;
     error: string = "";
     acuerdo: number = 0;
+    interes: number = 0;
 
     constructor(saldoInicial: number = 0){
 
@@ -22,14 +23,24 @@ export class Cuenta{
        
         if(this.saldo + this.acuerdo >= monto )
         {
-            this.saldo -= monto;
+            let montoSobregirado = this.saldo - monto;
+            let interesAplicado = 0;
+             
+            if(montoSobregirado < 0)           
+                interesAplicado =  Math.abs(montoSobregirado)  * (this.interes / 100);
+              
+            
+
+             this.saldo -= monto + interesAplicado;
+
         }          
         else this.error = "saldo insuficiente"; 
         
        
     }
 
-    configAcuerdo(montoAcuerdo: number) {
+    configAcuerdo(montoAcuerdo: number, interes: number) {
         this.acuerdo = montoAcuerdo;
+        this.interes = interes;
     }
 }

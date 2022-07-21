@@ -20,9 +20,9 @@ export class BankAccountSteps {
     this.account.depositar(saldoInicial);
   }
 
-  @given(/Una cuenta con acuerdo de (\d+)/)
-  public setAcuerdo(acuerdoMonto: number) {
-    this.account.configAcuerdo(acuerdoMonto);
+  @given(/Una cuenta con acuerdo de (\d+) y un interes de (\d+) porciento sobre descubierto/)
+  public setAcuerdo(acuerdoMonto: number, interes: number) {
+    this.account.configAcuerdo(acuerdoMonto, interes);
   }
 
   @when(/Cuando deposito (-?\d+)/)
