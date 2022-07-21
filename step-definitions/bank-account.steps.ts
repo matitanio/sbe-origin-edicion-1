@@ -40,8 +40,8 @@ export class BankAccountSteps {
     assert.equal(this.account.saldo, saldoEsperado);
   }
 
-  @then(/El error debe ser saldo insuficiente/)
-  public pepe() {
-    assert.equal(this.account.error, "saldo insuficiente");
+  @then(/El error debe ser (.*)/)
+  public mostrarMensajeError(mensajeError: string) {
+    assert.equal(this.account.error, mensajeError);
   }
 }

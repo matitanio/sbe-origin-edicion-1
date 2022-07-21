@@ -39,3 +39,8 @@ Feature: Operaciones con cuentas
     When Cuando extraigo 200
     Then El saldo de la cuenta tiene que ser de -110
   
+  Scenario: Extraer dinero y sobrepaso el limite del acuerdo
+    Given Una cuenta con un saldo inicial de 100 
+    Given Una cuenta con acuerdo de 300 y un interes de 10 porciento sobre descubierto
+    When Cuando extraigo 1000
+    Then El error debe ser saldo insuficiente. Imposible cubrir con el acuerdo

@@ -28,15 +28,15 @@ export class Cuenta{
              
             if(montoSobregirado < 0)           
                 interesAplicado =  Math.abs(montoSobregirado)  * (this.interes / 100);
-              
-            
-
              this.saldo -= monto + interesAplicado;
-
+        }
+        else
+        {
+            if (this.acuerdo == 0)
+                this.error = "saldo insuficiente"; 
+            else
+                this.error = "saldo insuficiente. Imposible cubrir con el acuerdo"
         }          
-        else this.error = "saldo insuficiente"; 
-        
-       
     }
 
     configAcuerdo(montoAcuerdo: number, interes: number) {
