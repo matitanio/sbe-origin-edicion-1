@@ -43,3 +43,15 @@ Feature: Operaciones con cuentas
     Given Una cuenta con un saldo inicial de 100
     When Cuando ingreso 100
     Then El saldo de la cuenta tiene que ser de 200
+
+  Scenario: Extraer total disponible en cuenta sin acuerdo
+    Given Una cuenta con un saldo inicial de 300
+    When Cuando extraigo 300
+    Then El saldo de la cuenta tiene que ser de 0
+
+  Scenario: Extraer total disponible en cuenta con acuerdo
+    Given Una cuenta con un saldo inicial de -120
+    Given Una cuenta con acuerdo de 200 y un interes de 10 porciento sobre descubierto
+    When Cuando extraigo 80
+    Then El saldo de la cuenta tiene que ser de -220
+  
