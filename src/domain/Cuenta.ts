@@ -4,10 +4,12 @@ export class Cuenta{
     error: string = "";
     acuerdo: number = 0;
     interes: number = 0;
+    nroCuenta: number = 0;
 
     constructor(saldoInicial: number = 0){
 
         this.saldo = Number(saldoInicial);
+
     }
 
     consultarSaldo() : number{
@@ -37,6 +39,12 @@ export class Cuenta{
                 this.error = "saldo insuficiente. Imposible cubrir con el acuerdo"
         }          
     }
+
+    // transferir(monto:number, nroCuentaDestino:number){
+    //     this.extraer(monto);
+    //     let cuentaExterna = bankServiceMock.GetCuenta(nroCuentaDestino);
+    //     cuentaExterna.depositamos(monto);
+    // }
 
     configAcuerdo(montoAcuerdo: number, interes: number) {
         this.acuerdo = montoAcuerdo;

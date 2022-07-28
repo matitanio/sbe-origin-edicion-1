@@ -55,3 +55,8 @@ Feature: Operaciones con cuentas
     When Cuando extraigo 80
     Then El saldo de la cuenta tiene que ser de -220
   
+  Scenario: Transferir a una cuenta de terceros en mismo banco
+    Given Una cuenta con un saldo inicial de 200
+    When Cuando transfiero a la cuenta 12345 un monto de 120
+    Then El saldo de la cuenta origen tiene que ser de 80
+    Then El saldo de la cuenta destino tiene que incrementarse en 120

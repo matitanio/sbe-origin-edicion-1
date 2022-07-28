@@ -1,6 +1,7 @@
 import { binding, given, then, when} from 'cucumber-tsflow';
 import { assert } from 'chai';
 import {Cuenta} from '../src/domain/Cuenta'; 
+import { BancoMock } from '../src/domain/BancoMock';
 //import { setDefaultTimeout } from 'cucumber';
 
 //setDefaultTimeout(10000);
@@ -10,9 +11,11 @@ import {Cuenta} from '../src/domain/Cuenta';
 export class BankAccountSteps {
   
   private account: Cuenta;
+  private banco: BancoMock;
 
   constructor() {
     this.account =  new Cuenta();
+    this.banco = new BancoMock();
   }
 
   @given(/Una cuenta con un saldo inicial de (-?\d+)/)
@@ -38,6 +41,11 @@ export class BankAccountSteps {
   @when(/Cuando ingreso (\d+)/)
   public ingresarDinero(monto: number) {
     this.account.depositar(monto);
+  }
+
+  @when(/Cuando transfiero a la cuenta (\d+) un monto de (\d+)/)
+  public transferir(nroCuenta: number, monto: number) {
+    this.banco.transferir(this.account, nroCuenta, monto);
   }
 
   @then(/El saldo de la cuenta tiene que ser de (-?\d+)/)
