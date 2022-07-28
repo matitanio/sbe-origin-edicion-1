@@ -35,6 +35,11 @@ export class BankAccountSteps {
     this.account.extraer(monto);
   }
 
+  @when(/Cuando ingreso (\d+)/)
+  public ingresarDinero(monto: number) {
+    this.account.depositar(monto);
+  }
+
   @then(/El saldo de la cuenta tiene que ser de (-?\d+)/)
   public laCuentaDeberTenerUn(saldoEsperado: number) {
     assert.equal(this.account.saldo, saldoEsperado);

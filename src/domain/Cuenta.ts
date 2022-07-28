@@ -14,8 +14,7 @@ export class Cuenta{
         return this.saldo;
     }
 
-    depositar(monto : number){
-        
+    depositar(monto : number){        
         this.saldo += Number(monto); 
     }
 
